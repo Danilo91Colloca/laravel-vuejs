@@ -35,6 +35,8 @@ class PassengerSeed extends Seeder
                 'age'=>'30'
             ]
         ];
+        //se si scrive tutto in array si può utilizzare il fill nel seeder
+        // dando a ciascun sotto array le stesse key della column
         foreach($passengersList as $passengerItem) {
             $newPassenger = new Passenger();
             $newPassenger->fill($passengerItem);

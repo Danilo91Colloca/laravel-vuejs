@@ -9,6 +9,11 @@
 </head>
     <body>
         <div id="app">
+            <passenger-component
+            v-for="(passenger, index) in passengersList"
+            :key="index"
+            :passengerCard="passenger"
+            />
 
         </div>
     </body>

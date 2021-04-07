@@ -24,6 +24,7 @@ import VueAxios from 'vue-axios';
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+Vue.component('PassengerComponent', require('./components/PassengerComponent.vue').default);
 Vue.use(VueAxios, axios);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,10 +34,17 @@ Vue.use(VueAxios, axios);
 
 const app = new Vue({
     el: '#app',
+    data: {
+        passengersList: []
+    },
     mounted() {
-        axios.get('http://localhost:8888/phpMyAdmin/sql.php?db=test&table=passengers&pos=0')
+        let self=this;
+        axios.get('http://127.0.0.1:8000/api/passenger')
         .then(function(response){
-            console.log(response);
-        })
+            response.data.forEach((element) => {
+            self.passengersList.push(element);
+
+            });
+        });
     }
 });

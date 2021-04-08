@@ -1922,9 +1922,9 @@ __webpack_require__.r(__webpack_exports__);
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.Vue = require('vue').default;
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
 
 
 
@@ -1939,7 +1939,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 vue__WEBPACK_IMPORTED_MODULE_2__.default.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue").default);
-vue__WEBPACK_IMPORTED_MODULE_2__.default.component('PassengerComponent', __webpack_require__(/*! ./components/PassengerComponent.vue */ "./resources/js/components/PassengerComponent.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_2__.default.component('passenger-component', __webpack_require__(/*! ./components/PassengerComponent.vue */ "./resources/js/components/PassengerComponent.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_2__.default.use((vue_axios__WEBPACK_IMPORTED_MODULE_1___default()), (axios__WEBPACK_IMPORTED_MODULE_0___default()));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -1951,6 +1951,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_2__.default({
   el: '#app',
   data: {
     passengersList: []
+  },
+  components: {
+    ExampleComponent: ExampleComponent,
+    PassengerComponent: PassengerComponent
   },
   mounted: function mounted() {
     var self = this;

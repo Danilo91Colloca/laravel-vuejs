@@ -6,7 +6,7 @@
 
 require('./bootstrap');
 
-// window.Vue = require('vue').default;
+window.Vue = require('vue').default;
 import Vue from 'vue';
 
 import axios from 'axios';
@@ -24,7 +24,7 @@ import VueAxios from 'vue-axios';
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('PassengerComponent', require('./components/PassengerComponent.vue').default);
+Vue.component('passenger-component', require('./components/PassengerComponent.vue').default);
 Vue.use(VueAxios, axios);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -35,7 +35,11 @@ Vue.use(VueAxios, axios);
 const app = new Vue({
     el: '#app',
     data: {
-        passengersList: []
+        passengersList:[]
+    },
+    components: {
+        ExampleComponent,
+        PassengerComponent
     },
     mounted() {
         let self=this;
@@ -46,5 +50,6 @@ const app = new Vue({
 
             });
         });
-    }
+    },
+
 });
